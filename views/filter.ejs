@@ -13,39 +13,29 @@
 <hr />
 <hr />
 <div class="container">
-	<h1>{{ x }}</h1>
-	<input type="text" ng-model="x">
-	<hr />
-	M<input type="radio" name="gender" value="male" ng-model="y">
-	F<input type="radio" name="gender" value="female" ng-model="y">
-	<h2>{{ y }}</h2>
-	<hr />
-	<h2>{{ city }}</h2>
-	<select ng-model="city">
-		<option>Select</option>
-		<option>indore</option>
-		<option>ujjain</option>
-		<option>bhopal</option>
-		<option>dewas</option>
-	</select>
-	<button class="btn btn-info" ng-click="show('rohit')">Click</button>
+	
+	
+	<!-- <pre>{{ data | json }}</pre> -->
+	<!-- <pre ng-bind="data | json"></pre> -->
 	<table class="table table-bordered table-stripped table-hover">
 		<tr>
 			<th>S.No.</th>
 			<th>Name</th>
 			<th>Age</th>
 			<th>Fee</th>
+			<th>With Tax</th>
 
 		</tr>
-		<tr ng-repeat="x in data">
+		<tr ng-repeat="x in data | orderBy : 'age' : 'true'">
 			<!-- <td>{{ $index+1 }}</td>
 			<td>{{ x.name }}</td>
 			<td>{{ x.age }}</td>
 			<td>{{ x.fee }}</td> -->
 			<td ng-bind="$index+1"></td>
-			<td ng-bind="x.name"></td>
+			<td ng-bind="x.name | uppercase"></td>
 			<td ng-bind="x.age"></td>
-			<td ng-bind="x.fee"></td>
+			<td ng-bind="x.fee | currency : '&pound;'"></td>
+			<td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td>
 		</tr>
 	</table>
 </div>

@@ -12,6 +12,15 @@ app.get('/', function(req, res){
 	res.render("home");
 });
 
+app.get('/filter', function(req, res){
+	res.render("filter");
+});
+
+app.get('/order', function(req, res){
+	res.render("order");
+});
+
+
 app.listen(process.env.PORT || 3000, function(){
 	console.log("Server Running");
 });

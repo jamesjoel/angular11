@@ -1,18 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.filter("myFilter", function(){
-	return function(a, b){
-		if(b<=25)
-			return ((a*10/100)+a);
-		else
-			return ((a*20/100)+a);
-
-	}
-});
-
-
 app.controller('myCtrl', function($scope){
-	// $scope.data=["red", "green", "blue"];
 	$scope.data=[
 		{
 			name : "rohit",
@@ -48,16 +36,19 @@ app.controller('myCtrl', function($scope){
 			name : "Taha",
 			age : 30,
 			fee : 5500
+		},
+		{
+			name : "Ajay",
+			age : 30,
+			fee : 5500
 		}
 
 	];
-	$scope.x="Indore";
-	$scope.y="male";
-	$scope.city="dewas";
-	$scope.show=function(a){
-		// $scope.x=a;
-		// console.log("calling", a);
-		console.log($scope.x);
+	$scope.fieldName = '';
+	
+	$scope.orderType=function(a){
+		console.log(a);
+		$scope.fieldName=a;
 	}
 
 });
